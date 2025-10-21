@@ -1,6 +1,7 @@
 const express = require('express');
+const taskFisioController = require('./controllers/fisioController');
 const router = express.Router();
 
-router.get('/', (req, res) => res.status(200).send('API is running'));
+router.get('/fisioterapeutas', taskFisioController.getAllFisio);
 
 module.exports = router;
