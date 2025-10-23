@@ -5,6 +5,12 @@ async function getAllUsers(request, response) {
     return response.status(200).json(users);
 };
 
+async function createUser(request, response) {
+    const user = await userModel.createUser(request.body);
+    return response.status(201).json(user);
+}
+
 module.exports = {
-    getAllUsers
+    getAllUsers,
+    createUser
 };
