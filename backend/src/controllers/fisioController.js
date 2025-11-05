@@ -6,6 +6,12 @@ const getAllFisio = async(request, response) => {
     return response.status(200).json(fisioterapeutas);
 };
 
+async function createFisio(request, response) {
+    const fisio = await fisioModel.createFisio(request.body);
+    return response.status(201).json(fisio);
+}
+
 module.exports = {
-    getAllFisio
+    getAllFisio,
+    createFisio
 };

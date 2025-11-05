@@ -5,6 +5,16 @@ async function getAllEvolucoes() {
     return evolucoes;
 };
 
+async function createEvolucao(evolucao) {
+    const {paciente_id, objetivo, regiao_trabalhada, aparelho, chegada, saida, observacoes} = evolucao;
+
+    const query = 'INSERT INTO evolucoes(paciente_id, objetivo, regiao_trabalhada, aparelho, chegada, saida, observacoes) VALUES (?, ?, ?, ?, ?, ?, ?)';
+
+    const [createdEvolucao] = await connection.execute(query,[paciente_id, objetivo, regiao_trabalhada, aparelho, chegada, saida, observacoes]);
+    return createdEvolucao;
+}
+
 module.exports = {
-    getAllEvolucoes
+    getAllEvolucoes,
+    createEvolucao
 };

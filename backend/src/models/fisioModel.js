@@ -5,6 +5,17 @@ const getAllFisio = async () => {
     return fisioterapeutas;
 };
 
+async function createFisio(fisio) {
+    const {nome, crefito, usuario_id} = fisio;
+
+    const query = 'INSERT INTO fisioterapeutas(nome, crefito, usuario_id) VALUES (?, ?, ?)';
+
+    const [createdFisio] = await connection.execute(query, [nome, crefito, usuario_id]);
+
+    return createdFisio;
+}
+
 module.exports = {
-    getAllFisio
+    getAllFisio,
+    createFisio
 };
