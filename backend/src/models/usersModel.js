@@ -12,9 +12,16 @@ async function createUser(user) {
 
     const [createdUser] = await connection.execute(query, [email, senha_hash, tipousuario, nome]);
     return createdUser;
+};
+
+async function deleteUser(id) {
+    const removesUser = await connection.execute('DELETE FROM usuarios WHERE id = ?', [id]);
+    return removedUser;
+
 }
 
 module.exports = {
     getAllUsers,
-    createUser
+    createUser,
+    deleteUser
 };

@@ -10,7 +10,14 @@ async function createUser(request, response) {
     return response.status(201).json(user);
 }
 
+async function deleteUser(request, response) {
+    const {id} = request.params;
+    await userModel.deleteUser(id);
+    return response.status(204).json();
+}
+
 module.exports = {
     getAllUsers,
-    createUser
+    createUser,
+    deleteUser
 };

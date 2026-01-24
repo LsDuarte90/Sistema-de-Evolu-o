@@ -11,6 +11,7 @@ router.post('/fisioterapeutas', fisioController.createFisio);
 
 router.get('/users', usersController.getAllUsers);
 router.post('/users', usersMiddleware.validateBody, usersController.createUser);
+router.delete('/users/:id', usersController.deleteUser);
 
 router.get('/pacientes', pacientesController.getAllPacientes);
 router.post('/pacientes', pacientesController.createPaciente);
