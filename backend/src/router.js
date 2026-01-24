@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.get('/fisioterapeutas', fisioController.getAllFisio);
 router.post('/fisioterapeutas', fisioController.createFisio);
+router.delete('/fisioterapeutas/:id', fisioController.deleteFisio);
 
 router.get('/users', usersController.getAllUsers);
 router.post('/users', usersMiddleware.validateBody, usersController.createUser);
@@ -15,8 +16,10 @@ router.delete('/users/:id', usersController.deleteUser);
 
 router.get('/pacientes', pacientesController.getAllPacientes);
 router.post('/pacientes', pacientesController.createPaciente);
+router.delete('/pacientes/:id', pacientesController.deletePaciente);
 
 router.get('/evolucoes', evolucoesController.getAllEvolucoes);
 router.post('/evolucoes', evolucoesController.createEvolucao);
+router.delete('/evolucoes/:id', evolucoesController.deleteEvolucao);
 
 module.exports = router;

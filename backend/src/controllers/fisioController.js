@@ -11,7 +11,14 @@ async function createFisio(request, response) {
     return response.status(201).json(fisio);
 }
 
+async function deleteFisio(request, response) {
+    const {id} = request.params;
+    await fisioModel.deleteFisio(id);
+    return response.status(204).json();
+}
+
 module.exports = {
     getAllFisio,
-    createFisio
+    createFisio,
+    deleteFisio
 };

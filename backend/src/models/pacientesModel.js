@@ -111,7 +111,13 @@ async function createPacientes(paciente){
             return createdPaciente;
 }
 
+async function deletePaciente(id) {
+    const removedPaciente = await connection.execute('DELETE FROM pacientes WHERE id = ?', [id]);
+    return removedPaciente;
+}
+
 module.exports = {
     getAllPacientes,
-    createPacientes
+    createPacientes,
+    deletePaciente
 };

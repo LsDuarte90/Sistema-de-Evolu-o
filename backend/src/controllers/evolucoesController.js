@@ -10,7 +10,15 @@ async function createEvolucao(request, response) {
     const evolucao = await evolucoesModel.createEvolucao(request.body);
     return response.status(201).json(evolucao);
 }
+
+async function deleteEvolucao(request, response) {
+    const {id} = request.params;
+    await evolucoesModel.deleteEvolucao(id);
+    return response.status(204).json();
+}
+
 module.exports = {
     getAllEvolucoes,
-    createEvolucao
+    createEvolucao,
+    deleteEvolucao
 };

@@ -14,7 +14,13 @@ async function createEvolucao(evolucao) {
     return createdEvolucao;
 }
 
+async function deleteEvolucao(id) {
+    const removedEvolucao = await connection.execute('DELETE FROM evolucoes WHERE id = ?', [id]);
+    return removedEvolucao;
+}
+
 module.exports = {
     getAllEvolucoes,
-    createEvolucao
+    createEvolucao,
+    deleteEvolucao
 };

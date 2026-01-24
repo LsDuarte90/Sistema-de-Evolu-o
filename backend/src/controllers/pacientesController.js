@@ -11,7 +11,14 @@ async function createPaciente(request, response) {
     return response.status(201).json(pacientes);
 }
 
+async function deletePaciente(request, response) {
+    const {id} = request.params;
+    await pacientesModel.deletePaciente(id);
+    return response.status(204).json();
+}
+
 module.exports = {
     getAllPacientes,
-    createPaciente
+    createPaciente,
+    deletePaciente
 };

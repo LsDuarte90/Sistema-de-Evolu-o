@@ -15,7 +15,13 @@ async function createFisio(fisio) {
     return createdFisio;
 }
 
+async function deleteFisio(id) {
+    const removedFisio = await connection.execute('DELETE FROM fisioterapeutas WHERE id = ?', [id]);
+    return removedFisio;
+}
+
 module.exports = {
     getAllFisio,
-    createFisio
+    createFisio,
+    deleteFisio
 };
